@@ -1,0 +1,1 @@
+export const CATALOG_FETCHED = 'catalog.CATALOG_FETCHED';

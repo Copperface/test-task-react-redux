@@ -1,25 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import CatalogScreen from './containers/CatalogScreen';
+import PagesScreen from './containers/PagesScreen';
+import PageCreateScreen from './containers/PageCreateScreen';
+import PageEditScreen from './containers/PageEditScreen';
+import NavigationMenu from './components/NavigationMenu';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <NavigationMenu />
+        <Switch>
+          <Route exact path="/" component={CatalogScreen} />
+          <Route path="/pages" component={PagesScreen} />
+          <Route path="/newpage" component={PageCreateScreen} />
+          <Route path="/page/:id" component={PageEditScreen} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
